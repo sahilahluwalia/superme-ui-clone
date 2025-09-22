@@ -261,4 +261,33 @@ const content = {
     
   ]
 };
+
+export const rankedStarters = [
+    {
+      question: "What strategies help startups navigate macroeconomic downturns?",
+      similarity_score: 0.14491054275879017,
+      rank: 1,
+    },
+    {
+      question: "What global regions excite you most for Fund II?",
+      similarity_score: 0.14066466213752365,
+      rank: 2,
+    },
+    {
+      question:
+        "What are the most effective ways to build investor relationships?",
+      similarity_score: 0.12547065257918907,
+      rank: 3,
+    },
+    {
+      question: "What is the most important lesson you've learned as a GP?",
+      similarity_score: 0.12364698822465639,
+      rank: 4,
+    },
+    {
+      question: "What are the key elements of a compelling pitch deck?",
+      similarity_score: 0.11939888347414745,
+      rank: 5,
+    },
+  ];
 export default content;

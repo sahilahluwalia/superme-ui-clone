@@ -65,7 +65,7 @@ const Accordion = ({ content, type, socialLinks, list }: AccordionProps) => {
   const [isOpen, toggleOpen] = useReducer((isOpen) => !isOpen, false);
   console.log("isOpen", isOpen);
   const headerContent =
-    accordionTypes[type.toLowerCase()];
+    accordionTypes[type.toLowerCase() as keyof typeof accordionTypes];
 
   return (
     <>
@@ -86,6 +86,7 @@ const Accordion = ({ content, type, socialLinks, list }: AccordionProps) => {
             >
               {list.slice(0, 3).map((item) => (
                 <Image
+                  key={item.name}
                   className="rounded-full inline-block -outline-offset-1 z-10"
                   alt={item.name}
                   height={30}
@@ -131,6 +132,7 @@ const Accordion = ({ content, type, socialLinks, list }: AccordionProps) => {
           <>
             {list.map((item) => (
               <div
+                key={item.name}
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
@@ -168,7 +170,7 @@ const Accordion = ({ content, type, socialLinks, list }: AccordionProps) => {
         <div className="buttons flex-end gap-1 flex justify-end">
           {socialLinks &&
             socialLinks.map((item) => (
-              <SocialIcon type={item.type} url={item.url} />
+              <SocialIcon key={item.type} type={item.type} url={item.url} />
             ))}
         </div>
       </div>
