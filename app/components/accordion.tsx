@@ -74,9 +74,9 @@ const Accordion = ({ content, type, socialLinks, list }: AccordionProps) => {
         className="flex flex-col cursor-pointer w-sm  p-4 rounded-3xl border-gray-200 border-1 bg-white"
       >
         <div className="header flex items-center justify-between 0">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             {headerContent.icon}
-            <p className="font-bold">{headerContent.name}</p>
+            <p className="font-bold text-base text-gray-700">{headerContent.name}</p>
           </div>
           {list && (
             <div
@@ -145,10 +145,11 @@ const Accordion = ({ content, type, socialLinks, list }: AccordionProps) => {
                   width={40}
                   height={30}
                 />
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-1 ">
-                    <p className="font-bold break-words">{item.position}</p> at
-                    <p className="font-bold">{item.name}</p>
+                <div className="flex flex-col w-full">
+                  <div className="flex items-center gap-1 flex-wrap">
+                    <p className="font-medium break-words">{item.position}</p>
+                    <span className="text-gray-500">at</span>
+                    <p className="font-medium break-words">{item.name}</p>
                   </div>
 
                   <div className="flex items-center gap-1 text-xs mt-1">

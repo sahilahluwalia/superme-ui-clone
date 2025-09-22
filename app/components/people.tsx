@@ -11,10 +11,10 @@ const People = ({
     image: string
 }) => {
   return (
-    <div className='flex items-center gap-2 p-2 rounded-2xl hover:bg-gray-100 cursor-pointer w-full'>
+    <div className='flex items-center gap-2 p-2 rounded-2xl hover:bg-[#EDE8DE] cursor-pointer w-full'>
         <Image src={image} className='rounded-full' alt="people" width={40} height={100} />
         <div className='flex flex-col'>
-            <h4 className='font-medium text-base'>{name}</h4>
+            <h4 className='font-medium text-base text-gray-800'>{name}</h4>
             <p className='text-gray-500 text-xs'>{connection}</p>
         </div>
     </div>
