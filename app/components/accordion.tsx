@@ -71,16 +71,16 @@ const Accordion = ({ content, type, socialLinks, list }: AccordionProps) => {
     <>
       <div
         onClick={toggleOpen}
-        className="flex flex-col cursor-pointer w-sm  p-4 rounded-3xl border-gray-200 border-1 bg-white"
+        className="flex w-full flex-col cursor-pointer md:w-sm  p-4 rounded-3xl border-gray-200 border-1 bg-white"
       >
-        <div className="header flex items-center justify-between 0">
+        <div className="header flex items-center justify-between">
           <div className="flex items-center gap-4">
             {headerContent.icon}
             <p className="font-bold text-base text-gray-700">{headerContent.name}</p>
           </div>
           {list && (
             <div
-              className={cn(" flex items-center   -space-x-2 overflow-hidden", {
+              className={cn(" flex items-center ml-auto mr-2   -space-x-2 overflow-hidden", {
                 invisible: isOpen,
               })}
             >

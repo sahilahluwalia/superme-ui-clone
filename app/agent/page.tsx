@@ -59,7 +59,7 @@ const ChatMessageComponent = ({
     <>
       {
         <div className="flex flex-col gap-4 border border-gray-200 p-4 rounded-xl ">
-          <p className="font-medium text-2xl text-gray-700">{userContent}</p>
+          <p className="font-medium text-xl text-gray-700">{userContent}</p>
 
           {!assistantContent && (
             <>
@@ -131,16 +131,17 @@ const page = () => {
   };
   return (
     <div
-      className={cn("flex flex-col gap-7 justify-center ", {
-        "flex-row": showSidebar,
-      })}
+    className={cn("flex flex-col gap-7 justify-center px-4 sm:px-6", {
+      "lg:flex-row": showSidebar,
+    })}
     >
+      <div className="flex flex-col sm:flex-row gap-2 w-full justify-center">
       <div className="flex flex-col gap-4 border bg-[#FCFCFC] border-gray-200 p-4 rounded-3xl h-fit pb-10">
         <div className="flex justify-end gap-2 ">
-          <button className="bg-black text-white font-bold px-4 py-1 rounded-full text-sm hover:bg-gray-800 cursor-pointer">
+          <button className="bg-black text-white font-bold px-4 py-1 rounded-full text-sm hover:bg-gray-800">
             Follow
           </button>{" "}
-          <button className="cursor-pointer hover:bg-gray-100 p-3 rounded-full">
+          <button className=" hover:bg-gray-100 p-3 rounded-full">
             {" "}
             <FiUpload />
           </button>{" "}
@@ -168,7 +169,7 @@ const page = () => {
             <Image src="/star.svg" alt="star" width={15} height={10} />
             <p className="text-gray-700 font-medium text-xs">697k Insights</p>
           </div>
-          <div className="flex items-center gap-10 font-medium">
+          <div className="flex items-center  font-medium flex-col sm:flex-row gap-2 sm:gap-10">
             <p className="text-sm ">70 Followers</p>
             <div className="flex items-center gap-0.5 ">
               <div className="text-sm flex -space-x-1 ">
@@ -324,7 +325,6 @@ const page = () => {
       </div>
 
       {!showSidebar && (
-        <>
           <div className="flex flex-col gap-1.5 w-fit h-fit">
             <button
               onClick={toggleSidebar}
@@ -348,8 +348,10 @@ const page = () => {
               <ContentTooltip content="Timeline" />
             </button>
           </div>
-        </>
       )}
+      </div>
+     
+      
 
       {showSidebar && (
         <div className="flex  flex-col gap-1.5 transition-all duration-300">
