@@ -63,7 +63,6 @@ export const ReadMoreContent = ({ content }: { content: string }) => {
 
 const Accordion = ({ content, type, socialLinks, list }: AccordionProps) => {
   const [isOpen, toggleOpen] = useReducer((isOpen) => !isOpen, false);
-  console.log("isOpen", isOpen);
   const headerContent =
     accordionTypes[type.toLowerCase() as keyof typeof accordionTypes];
 
