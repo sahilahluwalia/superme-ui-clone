@@ -16,7 +16,7 @@ type AccordionProps = {
     type: string;
     url: string;
   }[];
-  workExperience?: {
+  list?: {
     name: string;
     position: string;
     startDate: string;
@@ -25,6 +25,7 @@ type AccordionProps = {
     icon: string;
     content: string;
   }[];
+  isOpen?: boolean;
 };
 
 const accordionTypes = {
@@ -46,7 +47,7 @@ const accordionTypes = {
   },
 };
 
-const ReadMoreContent = ({ content }: { content: string }) => {
+export const ReadMoreContent = ({ content }: { content: string }) => {
   const [isExpanded, toggleExpand] = useReducer((state) => !state, false);
   let shortContent = content.slice(0, 130);
   if (content.length > 130) {
@@ -60,16 +61,11 @@ const ReadMoreContent = ({ content }: { content: string }) => {
   );
 };
 
-const Accordion = ({
-  content,
-  type,
-  socialLinks,
-  workExperience,
-}: AccordionProps) => {
+const Accordion = ({ content, type, socialLinks, list }: AccordionProps) => {
   const [isOpen, toggleOpen] = useReducer((isOpen) => !isOpen, false);
   console.log("isOpen", isOpen);
-
-  const headerContent = accordionTypes[type.toLowerCase()];
+  const headerContent =
+    accordionTypes[type.toLowerCase()];
 
   return (
     <>
@@ -82,13 +78,13 @@ const Accordion = ({
             {headerContent.icon}
             <p className="font-bold">{headerContent.name}</p>
           </div>
-          {workExperience && (
+          {list && (
             <div
               className={cn(" flex items-center   -space-x-2 overflow-hidden", {
-                invisible: !isOpen,
+                invisible: isOpen,
               })}
             >
-              {workExperience.slice(0, 3).map((item) => (
+              {list.slice(0, 3).map((item) => (
                 <Image
                   className="rounded-full inline-block -outline-offset-1 z-10"
                   alt={item.name}
@@ -97,9 +93,11 @@ const Accordion = ({
                   src={item.icon}
                 ></Image>
               ))}
-              <span className="text-gray-600 text-xs rounded-full p-2 bg-gray-200">
-                +{workExperience.length - 3}
-              </span>
+              {list.length > 3 && (
+                <span className="text-gray-600 text-xs rounded-full p-2 bg-gray-200">
+                  +{list.length - 3}
+                </span>
+              )}
             </div>
           )}
 
@@ -117,10 +115,21 @@ const Accordion = ({
             {isOpen ? <>{content}</> : <>{content.slice(0, 210)}</>}
           </div>
         )}
-
-        {workExperience && !isOpen && (
+        {list && !isOpen && list.length === 0 && (
+          <div
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+            className="flex items-center gap-1 cursor-auto mt-2"
+          >
+            <p className="text-gray-500 text-sm">
+              No items in the {type.toLowerCase()}
+            </p>
+          </div>
+        )}
+        {list && isOpen && (
           <>
-            {workExperience.map((item) => (
+            {list.map((item) => (
               <div
                 onClick={(e) => {
                   e.stopPropagation();
@@ -149,7 +158,6 @@ const Accordion = ({
                     <p className=" text-gray-500">({item.timeDuration})</p>
                   </div>
                   <ReadMoreContent content={item.content} />
-                  {/* <p >{item.content}</p> */}
                 </div>
               </div>
             ))}

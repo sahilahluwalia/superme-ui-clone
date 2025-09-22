@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ContentTooltip from "./content-tooltip";
 
 const socialIconData = {
   twitter: {
@@ -50,9 +51,7 @@ const socialIconData = {
           width={content.width}
           src={content.src}
         />
-        <div className="absolute left-1/2 opacity-0   -translate-x-1/2   rounded-full mt-3 shadow-lg  p-0.5 px-2 text-xs font-medium text-white bg-gray-500 group-hover:opacity-100 ">
-          {content.tooltip}
-        </div>
+        <ContentTooltip content={content.tooltip} />
       </Link>
     </>
   );

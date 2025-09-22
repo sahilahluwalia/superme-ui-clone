@@ -230,6 +230,35 @@ const content = {
     icon:"/companies/watson.jpeg",
     content:"The IBM Watson AI XPRIZE is a $5 million AI and cognitive computing competition challenging teams globally to develop and demonstrate how humans can collaborate with powerful AI technologies to tackle the world’s grand challenges.",
   }],
-  timeline:[]
+  timeline:[],
+  relatedProfiles:[
+    {
+      name:"Wilson Kyi",
+      connection:"Because of IBM",
+      image:"/people/wilson-kyi.png"
+    },
+    {
+      name:"Mercedes Bent",
+      connection:"Because of Lightspeed Venture Partners",
+      image:"/people/mercedes-bent.png"
+    },
+    
+    {
+      name:"Arturo Moreno",
+      connection:"Because of IE Business School",
+      image:"/people/arturo-moreno.png"
+    },
+    {
+        name:"Andrew Jenkins",
+        connection:"Because of IBM",
+        image:"/people/andrew-jenkins.png"
+    },
+    {
+        name:"Merci Victoria Grace",
+        connection:"Because of Lightspeed Venture Partners",
+        image:"/people/merci-victoria-grace.png"
+    }
+    
+  ]
 };
 export default content;
